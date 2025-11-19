@@ -1,11 +1,47 @@
-import Spline from '@splinetool/react-spline'
+import { lazy, Suspense, useEffect, useState } from 'react'
 
-function Hero() {
+// Lazy load Spline to prevent blocking the initial render and avoid crashes on unsupported devices
+const SplineLazy = lazy(() => import('@splinetool/react-spline'))
+
+function supportsWebGL() {
+  try {
+    const canvas = document.createElement('canvas')
+    return !!(
+      window && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+    )
+  } catch {
+    return false
+  }
+}
+
+function HeroBackground() {
+  const [canRender, setCanRender] = useState(false)
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    setCanRender(!reduceMotion && supportsWebGL())
+  }, [])
+
+  if (!canRender) {
+    return (
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-slate-100" />
+    )
+  }
+
+  return (
+    <Suspense fallback={<div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-slate-100" />}>
+      <div className="absolute inset-0">
+        <SplineLazy scene="https://prod.spline.design/OG17yM2eUIs8MUmA/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+      </div>
+    </Suspense>
+  )
+}
+
+export default function Hero() {
   return (
     <section className="relative min-h-[80vh] w-full overflow-hidden bg-gradient-to-b from-white to-slate-50">
-      <div className="absolute inset-0">
-        <Spline scene="https://prod.spline.design/OG17yM2eUIs8MUmA/scene.splinecode" style={{ width: '100%', height: '100%' }} />
-      </div>
+      {/* 3D background (safe, lazy, with fallback) */}
+      <HeroBackground />
 
       {/* Gradient overlay for readability */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/80 via-white/40 to-white/90" />
@@ -31,5 +67,3 @@ function Hero() {
     </section>
   )
 }
-
-export default Hero

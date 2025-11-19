@@ -6,6 +6,7 @@ import Schedule from './components/Schedule'
 import FAQs from './components/FAQs'
 import Staff from './components/Staff'
 import ContactSubscribe from './components/ContactSubscribe'
+import SystemStatusBadge from './components/SystemStatusBadge'
 
 function App() {
   return (
@@ -26,7 +27,10 @@ function App() {
             <a href="#team" className="text-slate-600 hover:text-slate-900">Team</a>
             <a href="#subscribe" className="text-slate-600 hover:text-slate-900">Contact</a>
           </nav>
-          <a href="#subscribe" className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-slate-800">Enroll</a>
+          <div className="flex items-center gap-3">
+            <SystemStatusBadge />
+            <a href="#subscribe" className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-slate-800">Enroll</a>
+          </div>
         </div>
       </header>
 
