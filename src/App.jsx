@@ -11,7 +11,7 @@ function App() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <a href="#" className="flex items-center gap-2 font-semibold">
             <span className="inline-block h-3 w-3 rounded-full bg-emerald-500" />
-            FutureCode Academy
+            Future Minds Academy
           </a>
           <nav className="hidden gap-6 text-sm sm:flex">
             <a href="#categories" className="text-slate-600 hover:text-slate-900">Tracks</a>
@@ -35,7 +35,7 @@ function App() {
       <footer className="border-t border-slate-200 py-10">
         <div className="mx-auto max-w-7xl px-6 text-sm text-slate-600">
           <div className="flex flex-col items-start justify-between gap-4 sm:flex-row">
-            <p>© {new Date().getFullYear()} FutureCode Academy. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Future Minds Academy. All rights reserved.</p>
             <a href="/test" className="text-slate-500 hover:text-slate-900">System status</a>
           </div>
         </div>
