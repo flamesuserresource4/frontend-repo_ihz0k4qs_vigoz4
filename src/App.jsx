@@ -1,5 +1,9 @@
 import Hero from './components/Hero'
 import Categories from './components/Categories'
+import Gallery from './components/Gallery'
+import Pricing from './components/Pricing'
+import Schedule from './components/Schedule'
+import FAQs from './components/FAQs'
 import Staff from './components/Staff'
 import ContactSubscribe from './components/ContactSubscribe'
 
@@ -15,6 +19,10 @@ function App() {
           </a>
           <nav className="hidden gap-6 text-sm sm:flex">
             <a href="#categories" className="text-slate-600 hover:text-slate-900">Tracks</a>
+            <a href="#gallery" className="text-slate-600 hover:text-slate-900">Gallery</a>
+            <a href="#pricing" className="text-slate-600 hover:text-slate-900">Pricing</a>
+            <a href="#schedule" className="text-slate-600 hover:text-slate-900">Schedule</a>
+            <a href="#faqs" className="text-slate-600 hover:text-slate-900">FAQs</a>
             <a href="#team" className="text-slate-600 hover:text-slate-900">Team</a>
             <a href="#subscribe" className="text-slate-600 hover:text-slate-900">Contact</a>
           </nav>
@@ -25,6 +33,10 @@ function App() {
       <main>
         <Hero />
         <Categories />
+        <Gallery />
+        <Pricing />
+        <Schedule />
+        <FAQs />
         <div id="team">
           <Staff />
         </div>
